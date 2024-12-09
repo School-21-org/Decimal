@@ -50,10 +50,10 @@ Decimal number is implemented as a four-element array of 32-bit unsigned integer
 
 | Operator name | Operators  | Function                                                                           |
 | ------ | ------ |------------------------------------------------------------------------------------|
-| Addition | + | int my_add(my_decimal value_1, my_decimal value_2, my_decimal *result)         |
-| Subtraction | - | int my_sub(my_decimal value_1, my_decimal value_2, my_decimal *result) |
-| Multiplication | * | int my_mul(my_decimal value_1, my_decimal value_2, my_decimal *result) |
-| Division | / | int my_div(my_decimal value_1, my_decimal value_2, my_decimal *result) |
+| Addition | + | int add(decimal value_1, decimal value_2, decimal *result)         |
+| Subtraction | - | int sub(decimal value_1, decimal value_2, decimal *result) |
+| Multiplication | * | int mul(decimal value_1, decimal value_2, decimal *result) |
+| Division | / | int div(decimal value_1, decimal value_2, decimal *result) |
 
 The functions return the error code:
 
@@ -68,12 +68,12 @@ The functions return the error code:
 
 | Operator name | Operators  | Function |
 | ------ | ------ | ------ |
-| Less than | < | int my_is_less(my_decimal, my_decimal) |
-| Less than or equal to | <= | int my_is_less_or_equal(my_decimal, my_decimal) |
-| Greater than | > |  int my_is_greater(my_decimal, my_decimal) |
-| Greater than or equal to | >= | int my_is_greater_or_equal(my_decimal, my_decimal) |
-| Equal to | == |  int my_is_equal(my_decimal, my_decimal) |
-| Not equal to | != |  int my_is_not_equal(my_decimal, my_decimal) |
+| Less than | < | int is_less(decimal, decimal) |
+| Less than or equal to | <= | int is_less_or_equal(decimal, decimal) |
+| Greater than | > |  int is_greater(decimal, decimal) |
+| Greater than or equal to | >= | int is_greater_or_equal(decimal, decimal) |
+| Equal to | == |  int is_equal(decimal, decimal) |
+| Not equal to | != |  int is_not_equal(decimal, decimal) |
 
 Return value:
 
@@ -84,10 +84,10 @@ Return value:
 
 | Convertor/parser | Function |
 | ------ | ------ |
-| From int  | int my_from_int_to_decimal(int src, my_decimal *dst) |
-| From float  | int my_from_float_to_decimal(float src, my_decimal *dst) |
-| To int  | int my_from_decimal_to_int(my_decimal src, int *dst) |
-| To float  | int my_from_decimal_to_float(my_decimal src, float *dst) |
+| From int  | int from_int_to_decimal(int src, decimal *dst) |
+| From float  | int from_float_to_decimal(float src, decimal *dst) |
+| To int  | int from_decimal_to_int(decimal src, int *dst) |
+| To float  | int from_decimal_to_float(decimal src, float *dst) |
 
 Return value - code error:
 
@@ -108,10 +108,10 @@ Return value - code error:
 
 | Description | Function                                                         |
 | ------ |------------------------------------------------------------------|
-| Rounds a specified Decimal number to the closest integer toward negative infinity. | int my_floor(my_decimal value, my_decimal *result)            | 
-| Rounds a decimal value to the nearest integer. | int my_round(my_decimal value, my_decimal *result)    |
-| Returns the integral digits of the specified Decimal; any fractional digits are discarded, including trailing zeroes. | int my_truncate(my_decimal value, my_decimal *result) |
-| Returns the result of multiplying the specified Decimal value by negative one. | int my_negate(my_decimal value, s21_decimal *result)   |
+| Rounds a specified Decimal number to the closest integer toward negative infinity. | int floor(decimal value, decimal *result)            | 
+| Rounds a decimal value to the nearest integer. | int round(decimal value, decimal *result)    |
+| Returns the integral digits of the specified Decimal; any fractional digits are discarded, including trailing zeroes. | int truncate(decimal value, decimal *result) |
+| Returns the result of multiplying the specified Decimal value by negative one. | int negate(decimal value, decimal *result)   |
 
 Return value - code error:
 
@@ -132,15 +132,15 @@ Return value - code error:
 ### Build
 
 1. go to `src` folder
-2. run `make my_decimal.a` to build a library
-3. now you can use `my_decimal.a` library and compile with any required program.
+2. run `make decimal.a` to build a library
+3. now you can use `decimal.a` library and compile with any required program.
 
  <a id="item-five"></a>
 
 ### Unit tests
 
 1. go to `src` folder
-2. run `make` to build all targets including (*my_decimal.a, test, gcov_report*) / or run `make test` to run tests separately
+2. run `make` to build all targets including (*decimal.a, test, gcov_report*) / or run `make test` to run tests separately
 3. tests results will be printed to terminal
 
  <a id="item-six"></a>
@@ -148,7 +148,7 @@ Return value - code error:
 ### LCOV report
 
 1. go to `src` folder
-2. run `make` to build all targets including (*my_decimal.a, test, gcov_report*) / or run `make gcov_report` to run tests with gcov separately
+2. run `make` to build all targets including (*decimal.a, test, gcov_report*) / or run `make gcov_report` to run tests with gcov separately
 3. after report is generated go to `src/report` folder and open `index.html` file to see LCOV coverage
 
 <figure>
