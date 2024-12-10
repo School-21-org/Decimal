@@ -10,6 +10,7 @@ Implementation of own C *decimal.a* library.
 - [Build](#item-four)
 - [Unit tests](#item-five)
 - [GCOV report](#item-six)
+- [Authors](#authors)
 
  <a id="item-one"></a>
 
@@ -155,3 +156,11 @@ Return value - code error:
 <img src="misc/lcov.png" alt="lcov report" width="1000"/>  
 <figcaption>LCOV report</figcaption>
 </figure>
+
+### Authors
+
+S21 nicknames:
+
+- donnapoc (Sviatoslav)
+- directpi (Igor)
+- rendailb (Matvey)
